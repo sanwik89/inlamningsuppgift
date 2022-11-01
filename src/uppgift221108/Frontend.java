@@ -27,7 +27,7 @@ public class Frontend {
     public static void main(String[] args) {
         fe.askForInput();
         //körs så länge användaren inte skriver ordet stop.
-        while (!fe.userInput.equalsIgnoreCase("stop")) {
+        while (!be.getUserStopped()) {
             fe.askForInput();
         }
 

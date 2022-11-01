@@ -46,7 +46,7 @@ public class UnitTest {
 
         //Act
         ArrayList<String> actual;
-        actual = be.wordCount;
+        actual = be.accessWordCount();
 
         //Assert
         Assertions.assertEquals(expected, actual);
@@ -114,7 +114,7 @@ public class UnitTest {
 
         //Act
         ArrayList<String> actual;
-        actual = be.wordCount;
+        actual = be.accessWordCount();
 
 
         //Assert
@@ -135,7 +135,8 @@ public class UnitTest {
 
         //Act
         ArrayList<String> actual;
-        actual = be.wordCount;
+        actual = be.accessWordCount();
+
 
 
         //Assert

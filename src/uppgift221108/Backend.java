@@ -6,8 +6,10 @@ import java.util.Objects;
 
 public class Backend {
 
-    ArrayList<String> wordCount = new ArrayList<>();
-    String longestWord;
+    private final ArrayList<String> wordCount = new ArrayList<>();
+    private String longestWord;
+
+    private boolean userStopped = false;
 
     public int getWordCount() {
         return wordCount.size();
@@ -20,6 +22,7 @@ public class Backend {
 
         if (inputFromUser.equalsIgnoreCase("stop")) {
             wordCount.remove(wordCount.size() - 1);
+            userStopped = true;
         } else if (longestWord == null) {
             longestWord = inputFromUser;
         } else if (inputFromUser.length() > longestWord.length()) {
@@ -28,6 +31,13 @@ public class Backend {
 
     }
 
+    public ArrayList<String> accessWordCount() {
+        return wordCount;
+    }
+
+    public boolean getUserStopped() {
+        return userStopped;
+    }
 
     //hämtar det längsta ordet
     public String getLongestWord() {
