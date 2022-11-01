@@ -10,8 +10,8 @@ public class Frontend {
 
 
     public void printWords() {
-        for (int i = 0; i < be.wordCount.size(); i++) {
-            System.out.print(be.wordCount.get(i) + " ");
+        for (int i = 0; i < be.accessWordCount().size(); i++) {
+            System.out.print(be.accessWordCount().get(i) + " ");
         }
     }
 
