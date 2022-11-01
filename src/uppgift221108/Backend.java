@@ -11,23 +11,52 @@ public class Backend {
 
     private boolean userStopped = false;
 
+    private boolean stringSeparation(String inputFromUser) {
+        String[] arr = inputFromUser.split("\\W+");
+        boolean result = false;
+        for (String ss : arr) {
+            if (ss.equalsIgnoreCase("Stop")) {
+                userStopped = true;
+                wordCount.add(ss);
+                result = false;
+                break;
+            } else if (arr.length < 2) {
+
+                break;
+
+            } else {
+                if (longestWord == null) {
+                    longestWord = ss;
+                } else if (ss.length() > longestWord.length()) {
+                    longestWord = ss;
+                }
+                wordCount.add(ss);
+                result = true;
+
+            }
+        }
+        return result;
+    }
+
     public int getWordCount() {
         return wordCount.size();
 
     }
 
-    //lägger till ord i wordCount samt kollar om ordet är det längsta och sprar isf detta.
+    //lägger till ord i wordCount samt kollar om ordet är det längsta och sparar isf detta.
     public void userInput(String inputFromUser) {
-        wordCount.add(inputFromUser);
-
-        if (inputFromUser.equalsIgnoreCase("stop")) {
+        if (stringSeparation(inputFromUser)) {
+            //do nothing
+        } else if (userStopped) {
             wordCount.remove(wordCount.size() - 1);
-            userStopped = true;
-        } else if (longestWord == null) {
+
+        } else if (longestWord == null || longestWord.length() < inputFromUser.length()) {
             longestWord = inputFromUser;
-        } else if (inputFromUser.length() > longestWord.length()) {
-            longestWord = inputFromUser;
+            wordCount.add(inputFromUser);
+        } else {
+            wordCount.add(inputFromUser);
         }
+
 
     }
 
@@ -52,4 +81,6 @@ public class Backend {
         }
         return result;
     }
+
+
 }

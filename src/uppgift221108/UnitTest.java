@@ -162,6 +162,25 @@ public class UnitTest {
         Assertions.assertEquals(expected, actual);
 
     }
+    @Test
+    public void separateString() {
+
+        //Assemble
+        Backend be = new Backend();
+        be.userInput("Hej jag heter Nils");
+
+
+        int expected = 4;
+
+        //Act
+        int actual;
+        actual = be.getWordCount();
+
+
+        //Assert
+        Assertions.assertEquals(expected, actual);
+
+    }
 
 
 }
