@@ -138,7 +138,6 @@ public class UnitTest {
         actual = be.accessWordCount();
 
 
-
         //Assert
         Assertions.assertEquals(expected, actual);
 
@@ -162,6 +161,7 @@ public class UnitTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void separateString() {
 
@@ -182,5 +182,27 @@ public class UnitTest {
 
     }
 
+    @Test
+    public void rowCountCheck() {
 
+        //Assemble
+
+        Backend be = new Backend();
+        be.userInput("te");
+        be.userInput("tes");
+        be.userInput("test");
+        be.userInput("test4");
+
+
+        int expected;
+        expected = 4;
+
+        //Act
+        int actual;
+        actual = be.getRows();
+
+        //Assert
+        Assertions.assertEquals(expected, actual);
+
+    }
 }

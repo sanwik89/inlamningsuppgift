@@ -1,5 +1,6 @@
 package uppgift221108;
 
+
 import java.util.Scanner;
 
 public class Frontend {
@@ -36,6 +37,8 @@ public class Frontend {
         System.out.println("\n\nWhich is a total of " + be.getCharCount() + " characters!");
         System.out.println("The longest word you wrote was: ");
         System.out.println(be.getLongestWord());
+        System.out.println("You wrote a total of: " + be.getWordCount() + " words!");
+        System.out.println("You did so in: " + be.getRows() + " rows!");
 
     }
 

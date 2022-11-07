@@ -9,7 +9,13 @@ public class Backend {
     private final ArrayList<String> wordCount = new ArrayList<>();
     private String longestWord;
 
-    private boolean userStopped = false;
+    private int rows;
+    private boolean userStopped;
+
+    public Backend() {
+        rows = 0;
+        userStopped = false;
+    }
 
     private boolean stringSeparation(String inputFromUser) {
         String[] arr = inputFromUser.split("\\W+");
@@ -18,19 +24,24 @@ public class Backend {
             if (ss.equalsIgnoreCase("Stop")) {
                 userStopped = true;
                 wordCount.add(ss);
-                result = false;
-                break;
-            } else if (arr.length < 2) {
+                rows++;
 
+                result = false;
                 break;
 
             } else {
                 if (longestWord == null) {
                     longestWord = ss;
+
+
                 } else if (ss.length() > longestWord.length()) {
                     longestWord = ss;
+
+
                 }
                 wordCount.add(ss);
+
+
                 result = true;
 
             }
@@ -43,18 +54,18 @@ public class Backend {
 
     }
 
+    public int getRows() {
+        return rows;
+    }
+
     //lägger till ord i wordCount samt kollar om ordet är det längsta och sparar isf detta.
     public void userInput(String inputFromUser) {
         if (stringSeparation(inputFromUser)) {
             //do nothing
+            rows++;
         } else if (userStopped) {
             wordCount.remove(wordCount.size() - 1);
 
-        } else if (longestWord == null || longestWord.length() < inputFromUser.length()) {
-            longestWord = inputFromUser;
-            wordCount.add(inputFromUser);
-        } else {
-            wordCount.add(inputFromUser);
         }
 
 
