@@ -65,6 +65,7 @@ public class Backend {
             rows++;
         } else if (userStopped) {
             wordCount.remove(wordCount.size() - 1);
+            rows--;
 
         }
 
